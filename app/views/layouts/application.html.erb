@@ -11,8 +11,30 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <header>
+      <div class="container header">
+        <div class="header-left">
+          <h1 class="header-logo"><%= link_to "Pote Share", :root %></h1>
+          <%= form_with model:@room do |f| %>
+            <%= f.text_field :name, class:'form__txt', :placeholder => "エリア" %>
+            <%= f.text_field :description, class:'form__txt', :placeholder => "キーワード" %>
+          <% end %>
+        </div>
+        <div class="header-right">
+          <% if user_signed_in? %>
+            <p><%= current_user.name %></p>
+            <%= image_tag 'icon.jpeg' %>
+          <% else %>
+            <%= link_to "ログイン", new_user_session_path %>
+            <%= link_to "登録", new_user_registration_path %>
+          <% end %>
+        </div>
+      </div>
+    </header>
+    <%= render "shared/flash" %>
     <%= yield %>
+    <footer class="footer">
+      <p>&copy; 2020 POTEPAN.INC.</p>
+    </footer>
   </body>
 </html>
