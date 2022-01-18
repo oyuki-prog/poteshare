@@ -2,4 +2,68 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-@import "_setting.scss"
+@import "_setting.scss";
+
+.btn {
+  color: #fff;
+  background-color: green;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-weight: bold;
+  display: block;
+
+  &__register {
+    margin-left: 20px;
+  }
+}
+
+// header
+
+header {
+  background-color: #333;
+}
+
+.header {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &-left {
+    display: flex;
+    align-items: center;
+  }
+
+  &-search{
+    display: flex;
+    margin-left: 30px;
+    @include mq(tab) {
+      display: none;
+    }
+  }
+
+  &-right {
+    display: flex;
+    align-items: center;
+  }
+
+  .user__name {
+    color: #eee;
+  }
+
+  .user__img {
+    width: 50px;
+    border-radius: 25px;
+    margin-left: 20px;
+  }
+}
+
+// footer
+
+.footer {
+  background-color: #333;
+  height: 100px;
+  color: #eee;
+  text-align: center;
+  line-height: 100px;
+}
