@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_17_020927) do
+ActiveRecord::Schema.define(version: 2022_01_19_234339) do
+
+  create_table "rooms", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "name", null: false
+    t.string "introduction", null: false
+    t.integer "price", null: false
+    t.string "address", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "image", null: false
+    t.index ["user_id"], name: "index_rooms_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,9 +34,11 @@ ActiveRecord::Schema.define(version: 2022_01_17_020927) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "name", null: false
     t.string "introduction"
-    t.string "profile_img_path"
+    t.string "img_path"
+    t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "rooms", "users"
 end

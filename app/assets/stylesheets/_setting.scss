@@ -11,7 +11,7 @@
 // ======================================
 
 // 幅関係の設定--------------------------
-$width-base: 1200px; // 全体
+$width-base: 1000px; // 全体
 $width-main: 800px; // メインエリアの幅
 $width-side: 360px; // サイドバーの幅
 
@@ -81,6 +81,8 @@ $breakpoints: ("sp": "(max-width: 767px)",
 *::after {
   box-sizing: border-box;
   text-decoration: none;
+  margin: 0;
+  padding: 0;
 }
 
 html,
@@ -124,9 +126,13 @@ a {
   text-decoration: none;
 }
 
+li {
+  list-style: none;
+}
+
 .container {
   width: $width-base;
-  max-width: 100%;
+  max-width: 90%;
   margin: 0 auto;
   height: inherit;
 

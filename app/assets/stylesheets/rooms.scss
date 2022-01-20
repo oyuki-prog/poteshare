@@ -1,0 +1,89 @@
+.form__row {
+  display: flex;
+  padding: 20px 0;
+}
+
+.rooms {
+  padding:30px;
+}
+
+.form {
+  width: 800px;
+  margin: 30px auto;
+  padding: 40px;
+  box-shadow: 5px 8px 8px #444;
+}
+
+.field_with_errors {
+  display: contents;
+}
+
+.form__field {
+  width: 70%;
+  padding: 8px;
+}
+
+.text-area {
+  resize: vertical;
+}
+
+.form__label {
+  width: 30%;
+  display: block;
+  margin: 10px 0;
+  position: relative;
+}
+
+.form__label::after {
+  content: "必須";
+  position: absolute;
+  transform: translateX(10px);
+  background-color: red;
+  color: #eee;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 0 16px;
+}
+
+.room__card {
+  width: 30%;
+  border: 1px solid #ccc;
+  background-color: #ccc;
+}
+
+.room__img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+}
+
+.room__text {
+  padding: 20px;
+  background-color: #fff;
+  color: #333;
+}
+
+.room__block {
+  margin: 40px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.room__info {
+  width: 60%;
+}
+
+.room__img-block {
+  background-color: #ddd;
+}
+
+.room-show__img {
+  height: 400px;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.room__reservation {
+  width: 35%;
+  border: 1px solid #333;
+}

@@ -24,6 +24,7 @@
         </div>
         <div class="header-right">
           <% if user_signed_in? %>
+            <%= link_to "ルーム登録", :new_room %>
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
             <p class="user__name"><%= current_user.name %></p>
             <%= image_tag 'icon.jpeg', class:'user__img' %>
@@ -34,8 +35,9 @@
         </div>
       </div>
     </header>
-    <%= render "shared/flash" %>
+
     <%= yield %>
+
     <footer class="footer">
       <p>&copy; 2020 POTEPAN.INC.</p>
     </footer>

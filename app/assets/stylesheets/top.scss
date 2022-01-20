@@ -56,7 +56,18 @@ header {
     border-radius: 25px;
     margin-left: 20px;
   }
+
+  .form__txt {
+    padding: 8px 16px;
+  }
 }
+
+// body
+.firstview {
+  background: image-url('firstview.jpg') no-repeat center center / cover;
+  height: 1000px;
+}
+
 
 // footer
 

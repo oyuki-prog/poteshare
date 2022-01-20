@@ -1,0 +1,21 @@
+<div class="container">
+  <%= render "shared/devise" %>
+  <div class="rooms">
+  <% if @rooms %>
+    <% @rooms.each do |room| %>
+      <a href="/rooms/<%= room.id %>">
+        <div class="room__card">
+          <%= image_tag "#{room.image}", class: 'room__img' %>
+          <div class="room__text">
+            <p><%= room.name %></p>
+            <p><%= room.address %></p>
+            <p>￥ <%= room.price %> / 日</p>
+          </div>
+        </div>
+      </a>
+    <% end %>
+  <% else %>
+    <p>登録されている部屋はありません</p>
+  <% end %>
+  </div>
+</div>
