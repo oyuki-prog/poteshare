@@ -9,9 +9,15 @@ class ReservationsController < ApplicationController
 
   def new
     @request = params[:reservation]
+    @check = ReserveForm.new(:startdate => @request[:start_date], enddate: @request[:end_date], num: @request[:guests_num])
+    @room = Room.find(@request[:room_id])
+    if @check.valid?
     @reservation = Reservation.new
     @stay_days = (@request[:end_date].to_date - @request[:start_date].to_date).to_i
-    @room = Room.find(@request[:room_id])
+    else
+      flash[:error] = @check.errors.full_messages
+      redirect_to "/rooms/#{@room.id}"
+    end
   end
 
   def create
