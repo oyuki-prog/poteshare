@@ -1,4 +1,5 @@
 <div class="container">
+  <%= render "shared/errors" %>
   <div class="room__block">
   <div class="room__info">
     <div class="room__img-block">
@@ -11,7 +12,24 @@
     </div>
   </div>
   <div class="room__reservation">
-
+    <p>￥ <%= @room.price %> / 日</p>
+    <%= form_with url: "/reservations/new", method: :get, model: @reservation do |f| %>
+    <div>
+      <%= f.label :start_date %>
+      <%= f.date_field :start_date, class:'form__txt', required: true %>
+    </div>
+    <div>
+      <%= f.label :end_date %>
+      <%= f.date_field :end_date, class:'form__txt', required: true %>
+    </div>
+    <div>
+      <%= f.label :guests_num %>
+      <%= f.number_field :guests_num, :min => 1, :step => 1, class:'form__txt', required: true %>
+    </div>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.hidden_field :room_id, :value => @room.id %>
+    <%= f.submit "予約する" %>
+    <% end %>
   </div>
   </div>
 </div>

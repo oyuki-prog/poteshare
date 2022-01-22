@@ -1,0 +1,7 @@
+<div class="container">
+  <% if @reservations %>
+    <% @reservations.each do |reservation| %>
+      <p><%= reservation.room.name %></p>
+    <% end %>
+  <% end %>
+</div>

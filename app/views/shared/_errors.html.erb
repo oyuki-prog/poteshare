@@ -1,8 +1,5 @@
-<% if obj.errors.any? %>
-  <p><%= obj.errors.count %>件のエラーがあります</p>
-  <% obj.errors.full_messages.each do |message| %>
-    <ul>
-      <li><%= message %></li>
-    </ul>
+<% if flash[:error] %>
+  <% flash[:error].each do |message|%>
+    <p><%= message %></p>
   <% end %>
 <% end %>

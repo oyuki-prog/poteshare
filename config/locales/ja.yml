@@ -10,6 +10,7 @@ ja:
     models:
       user: ユーザー
       room: ルーム
+      reservation: 予約
     attributes:
       user:
         name: 名前
@@ -22,6 +23,10 @@ ja:
         price: 価格
         address: 住所
         img_path: ルーム画像
+      reservation:
+        start_date: チェックイン日
+        end_date: チェックアウト日
+        guests_num: 宿泊人数
   date:
     abbr_day_names:
     - 日
