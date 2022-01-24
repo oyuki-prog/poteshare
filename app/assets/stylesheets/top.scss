@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-@import "_setting.scss";
+@import "_setting";
 
 .btn {
   color: #fff;
@@ -17,6 +17,12 @@
   }
 }
 
+.title {
+  font-size: 32px;
+  display: block;
+  margin-top: 40px;
+}
+
 // header
 
 header {
@@ -24,10 +30,11 @@ header {
 }
 
 .header {
-  height: 60px;
+  height: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: #eee;
 
   &-left {
     display: flex;
@@ -60,12 +67,17 @@ header {
   .form__txt {
     padding: 8px 16px;
   }
+
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
 }
 
 // body
 .firstview {
   background: image-url('firstview.jpg') no-repeat center center / cover;
-  height: 1000px;
+  height: 800px;
 }
 
 

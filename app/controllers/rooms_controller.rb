@@ -1,6 +1,6 @@
 class RoomsController < ApplicationController
   def index
-    @rooms = Room.all
+    @rooms = Room.where("address LIKE ? AND name LIKE ?", "%#{params[:area]}%", "%#{params[:keyword]}%")
   end
 
   def show
@@ -23,6 +23,14 @@ class RoomsController < ApplicationController
     end
   end
 
+  def posts
+    if current_user
+      @rooms = current_user.rooms
+    else
+      redirect_to :new_user_session
+    end
+  end
+
   def edit
     @room = Room.find(params[:id])
   end
@@ -42,6 +50,6 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
     @room.destroy
     flash[:notice] = 'ルームを削除しました'
-    redirect_to :rooms
+    redirect_to :rooms_posts
   end
 end

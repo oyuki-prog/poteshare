@@ -1,0 +1,21 @@
+<div class="container">
+  <%= render "shared/errors" %>
+  <div class="form">
+    <%= form_with url: '/users/profile', method: :patch, model: @user do |f| %>
+      <div class="form__row">
+        <%= f.label :name, class: 'form__label required' %>
+        <%= f.text_field :name, class:'form__field', required: true %>
+      </div>
+      <div class="form__row">
+        <%= f.label :introduction, class: 'form__label' %>
+        <%= f.text_area :introduction, class:'form__field text-area'%>
+      </div>
+      <div class="form__row">
+        <%= f.label :avatar, class: 'form__label' %>
+        <%= f.file_field :avatar, accept: 'image/jpg,image/jpeg,image/png,image/gif', class:'form__field' %>
+      </div>
+      <%= f.hidden_field :user_avatar_cache %>
+      <%= f.submit "更新", class: 'btn btn__create' %>
+    <% end %>
+  </div>
+</div>

@@ -4,23 +4,23 @@
   <div class="form">
     <%= form_with model: @room do |f| %>
       <div class="form__row">
-        <%= f.label :name, class: 'form__label' %>
+        <%= f.label :name, class: 'form__label required' %>
         <%= f.text_field :name, class:'form__field', required: true %>
       </div>
       <div class="form__row">
-        <%= f.label :introduction, class: 'form__label' %>
+        <%= f.label :introduction, class: 'form__label required' %>
         <%= f.text_area :introduction, class:'form__field text-area', required: true %>
       </div>
       <div class="form__row">
-        <%= f.label :price, class: 'form__label' %>
+        <%= f.label :price, class: 'form__label required' %>
         <%= f.number_field :price, :min => 1, :step => 1, class:'form__field', required: true %>
       </div>
       <div class="form__row">
-        <%= f.label :address, class: 'form__label' %>
+        <%= f.label :address, class: 'form__label required' %>
         <%= f.text_field :address, class:'form__field', required: true %>
       </div>
       <div class="form__row">
-        <%= f.label :image, class: 'form__label' %>
+        <%= f.label :image, class: 'form__label required' %>
         <%= f.file_field :image, accept: 'image/jpg,image/jpeg,image/png,image/gif', class:'form__field', required: true %>
       </div>
       <%= f.hidden_field :user_id, :value => current_user.id %>

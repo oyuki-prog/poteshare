@@ -1,0 +1,32 @@
+<div class="container">
+  <%= render "shared/errors" %>
+  <h2 class="title"><%= current_user.name %>さんが登録したルーム</h2>
+  <table>
+    <tr>
+      <th>ルーム画像</th>
+      <th>ルーム名</th>
+      <th>ルーム紹介</th>
+      <th>料金</th>
+      <th>登録日時</th>
+      <th>編集</th>
+      <th>削除</th>
+    </tr>
+    <% if @rooms %>
+      <% @rooms.each do |room| %>
+        <tr>
+            <td><%= image_tag "#{room.image}", class: 'room__img' %> </td>
+            <td>
+              <a href="/rooms/#{room.id}">
+                <%= room.name %>
+              </a>
+            </td>
+            <td><%= room.introduction %></td>
+            <td><%= room.price %></td>
+            <td><%= room.created_at.to_date %></td>
+            <td><%= link_to "編集", [:edit, room] %> </td>
+            <td><%= link_to "削除", room, method: :delete, data: {confirm: "本当に削除しますか？"} %> </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+</div>

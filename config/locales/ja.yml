@@ -16,13 +16,13 @@ ja:
         name: 名前
         email: メールアドレス
         introduction: 自己紹介文
-        img_path: プロフィール画像
+        avatar: プロフィール画像
       room:
         name: 名前
         introduction: 部屋紹介文
         price: 価格
         address: 住所
-        img_path: ルーム画像
+        image: ルーム画像
       reservation:
         start_date: チェックイン日
         end_date: チェックアウト日

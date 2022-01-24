@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   root :to => 'top#index'
   devise_for :users
+  get '/rooms/posts' => 'rooms#posts', as: 'rooms_posts'
   resources :rooms
 
+  get '/users/profile' => 'users#edit'
+  patch '/users/profile' => 'users#update'
   get '/reservations/new' => 'reservations#new'
   get '/reservations' => 'reservations#index'
   post '/reservations' => 'reservations#create'

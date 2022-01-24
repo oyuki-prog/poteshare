@@ -2,7 +2,7 @@
   <section class="reservation">
     <%= render "shared/errors", obj:@reservation %>
     <p>予約確認</p>
-    <p>￥ <%= @room.price %> / 日</p>
+    <p>一人あたり ￥ <%= @room.price %> / 日</p>
     <p>開始日</p>
     <p><%= @request[:start_date] %></p>
     <p>終了日</p>
@@ -10,7 +10,7 @@
     <p>使用日数：<%= @stay_days %> 日</p>
     <p>人数：<%= @request[:guests_num] %> 人</p>
     <p>合計金額</p>
-    <p><%= @room.price * @stay_days %> 円</p>
+    <p><%= @room.price * @stay_days * @request[:guests_num].to_i %> 円</p>
     <%= form_with model: @reservation do |f| %>
       <%= f.hidden_field :start_date, value: @request[:start_date] %>
       <%= f.hidden_field :end_date, value: @request[:end_date] %>

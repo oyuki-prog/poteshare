@@ -5,6 +5,8 @@
 
 .rooms {
   padding:30px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .form {
@@ -34,7 +36,7 @@
   position: relative;
 }
 
-.form__label::after {
+.required::after {
   content: "必須";
   position: absolute;
   transform: translateX(10px);
@@ -49,6 +51,12 @@
   width: 30%;
   border: 1px solid #ccc;
   background-color: #ccc;
+  display: block;
+  margin-right: calc(10% / 2 - 1px);
+}
+
+.room__card:nth-child(3n) {
+  margin-right: 0;
 }
 
 .room__img {
@@ -87,3 +95,25 @@
   width: 35%;
   border: 1px solid #333;
 }
+
+table a {
+  color: #333;
+  text-decoration: underline;
+}
+
+table {
+  border-collapse: collapse;
+  display: table;
+  margin: 30px 0;
+}
+
+tr {
+  display: table-row;
+  border-bottom: 2px solid #111;
+}
+
+th,
+td {
+  padding: 20px;
+}
+

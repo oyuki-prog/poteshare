@@ -6,7 +6,7 @@ one:
   introduction: MyString
   price: 1
   address: MyString
-  room_img_path: MyString
+  image: MyString
 
 two:
   user: two
@@ -14,4 +14,4 @@ two:
   introduction: MyString
   price: 1
   address: MyString
-  room_img_path: MyString
+  image: MyString

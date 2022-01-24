@@ -1,7 +1,26 @@
 <div class="container">
-  <% if @reservations %>
-    <% @reservations.each do |reservation| %>
-      <p><%= reservation.room.name %></p>
+  <table>
+    <tr>
+      <th>ルーム画像</th>
+      <th>ルーム名</th>
+      <th>ルーム紹介</th>
+      <th>合計料金</th>
+      <th>チェックイン</th>
+      <th>チェックアウト</th>
+      <th>予約確定日時</th>
+    </tr>
+    <% if @reservations %>
+      <% @reservations.each do |reservation| %>
+        <tr>
+            <td><%= image_tag "#{reservation.room.image}" %></td>
+            <td><%= reservation.room.name %></td>
+            <td><%= reservation.room.introduction %></td>
+            <td><%= reservation.total_price %></td>
+            <td><%= reservation.start_date %></td>
+            <td><%= reservation.end_date %></td>
+            <td><%= reservation.created_at %></td>
+        </tr>
+      <% end %>
     <% end %>
-  <% end %>
+  </table>
 </div>

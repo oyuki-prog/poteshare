@@ -1,7 +1,7 @@
 require 'date'
 class Reservation < ApplicationRecord
-  belongs_to :user
-  belongs_to :room
+  belongs_to :user, optional: true
+  belongs_to :room, optional: true
 
   validates :start_date, presence: true
   validates :end_date, presence: true, length: { in: 1..255 }
@@ -19,6 +19,10 @@ class Reservation < ApplicationRecord
   def now_start_check
     errors.add(:start_date, 'は今日より前の日付で登録できません') unless
     start_date > Date.today
+  end
+
+  def total_price
+    self.room.price * (end_date - start_date).to_i * guests_num
   end
   
 end

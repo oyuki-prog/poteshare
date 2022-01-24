@@ -1,5 +1,6 @@
 class Room < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, optional: true
+  has_many :reservations, dependent: :destroy
 
   mount_uploader :image, ImageUploader
 
@@ -8,7 +9,7 @@ class Room < ApplicationRecord
   end
 
   include ActiveModel::Validations
-  attr_accessor :img_path
+  # attr_accessor :image
 
   validates :name, presence: true
   validates :introduction, presence: true, length: { in: 1..255 }

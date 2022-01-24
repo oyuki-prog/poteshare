@@ -16,18 +16,24 @@
         <div class="header-left">
           <h1 class="header-logo"><%= link_to "Pote Share", :root %></h1>
           <div class="header-search">
-          <%= form_with model:@room do |f| %>
-            <%= f.text_field :name, class:'form__txt', :placeholder => "エリア" %>
-            <%= f.text_field :description, class:'form__txt', :placeholder => "キーワード" %>
+          <%= form_with url: '/rooms', method: :get do |f| %>
+            <%= f.text_field :area, class:'form__txt', size: 10, value: params[:area], :placeholder => "エリア" %>
+            <%= f.text_field :keyword, class:'form__txt', size: 10, value: params[:keyword], :placeholder => "キーワード" %>
+            <%= f.submit '検索', name: nil %>
           <% end %>
           </div>
         </div>
         <div class="header-right">
           <% if user_signed_in? %>
+            <%= link_to "プロフィール編集", :edit_user_registration %>
             <%= link_to "ルーム登録", :new_room %>
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+            <%= link_to "ログアウト", :destroy_user_session, method: :delete %>
             <p class="user__name"><%= current_user.name %></p>
-            <%= image_tag 'icon.jpeg', class:'user__img' %>
+            <% if "#{current_user.avatar}".empty? %>
+              <%= image_tag 'default.jpeg', class: 'user__img' %>
+            <% else %>
+              <%= image_tag "#{current_user.avatar}", class: 'user__img' %>
+            <% end %>
           <% else %>
             <%= link_to "ログイン", new_user_session_path, class:'btn btn__login'%>
             <%= link_to "登録", new_user_registration_path, class:'btn btn__register' %>
