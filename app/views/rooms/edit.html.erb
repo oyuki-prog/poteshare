@@ -1,4 +1,5 @@
 <div class="container">
+  <h2 class="title">ルーム情報更新</h2>
   <%= render "shared/errors" %>
   <div class="form">
     <%= form_with model: @room do |f| %>
@@ -23,7 +24,7 @@
         <%= f.file_field :image, accept: 'image/jpg,image/jpeg,image/png,image/gif', class:'form__field' %>
       </div>
       <%= f.hidden_field :user_id, :value => current_user.id %>
-      <%= f.submit "登録", class: 'btn btn__create' %>
+      <%= f.submit "更新", class: 'btn btn__create' %>
     <% end %>
   </div>
 </div>

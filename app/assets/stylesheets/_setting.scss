@@ -134,16 +134,17 @@ li {
   max-width: 90%;
   margin: 0 auto;
   height: inherit;
+  position: relative;
 
   @include mq('tab') {
     padding-left: $padding-tab;
     padding-right: $padding-tab;
-    // width: calc(100% - #{$padding-tab} * 2);
+    width: calc(100% - #{$padding-tab} * 2);
   }
 
   @include mq('sp') {
     padding-left: $padding-sp;
     padding-right: $padding-sp;
-    // width: calc(100% - #{$padding-sp} * 2);
+    width: calc(100% - #{$padding-sp} * 2);
   }
 }

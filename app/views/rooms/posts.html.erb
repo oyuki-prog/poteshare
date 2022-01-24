@@ -16,7 +16,7 @@
         <tr>
             <td><%= image_tag "#{room.image}", class: 'room__img' %> </td>
             <td>
-              <a href="/rooms/#{room.id}">
+              <a href="/rooms/<%= room.id %>">
                 <%= room.name %>
               </a>
             </td>

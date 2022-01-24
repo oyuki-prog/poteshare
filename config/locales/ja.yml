@@ -27,6 +27,10 @@ ja:
         start_date: チェックイン日
         end_date: チェックアウト日
         guests_num: 宿泊人数
+      reserve_form:
+        startdate: チェックイン日
+        enddate: チェックアウト日
+        num: 宿泊人数
   date:
     abbr_day_names:
     - 日
@@ -225,3 +229,7 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  reserve_form:
+    startdate: チェックイン日
+    enddate: チェックアウト日
+    num: 宿泊人数

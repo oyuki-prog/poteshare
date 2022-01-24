@@ -39,7 +39,7 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
     if @room.update(params.require(:room).permit(:name, :introduction, :price, :address, :image, :user_id))
       flash[:notice] = 'ルームの情報を更新しました'
-      redirect_to :rooms
+      redirect_to :rooms_posts
     else
       flash[:error] = @room.errors.full_messages
       redirect_to :edit_room

@@ -1,6 +1,13 @@
 <div class="firstview">
   <div class="container">
     <%= render "shared/devise" %>
-    <p>test</p>
+    <div class="top--card">
+      <p>Potepan Shareでまだ体験したことのない旅をしよう</p>
+      <form action="/rooms">
+        <label for="area">エリア</label>
+        <input type="text" id="area" name="area">
+        <input type="submit" value="探す" class="btn btn__search">
+      </form>
+    </div>
   </div>
 </div>

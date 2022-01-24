@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/rooms/posts' => 'rooms#posts', as: 'rooms_posts'
   resources :rooms
 
-  get '/users/profile' => 'users#edit'
+  get '/users/profile' => 'users#edit', as: 'users_profile'
   patch '/users/profile' => 'users#update'
   get '/reservations/new' => 'reservations#new'
   get '/reservations' => 'reservations#index'

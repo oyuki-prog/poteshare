@@ -12,13 +12,17 @@
     <% if @reservations %>
       <% @reservations.each do |reservation| %>
         <tr>
-            <td><%= image_tag "#{reservation.room.image}" %></td>
-            <td><%= reservation.room.name %></td>
+            <td><%= image_tag "#{reservation.room.image}", class: 'room__img'%></td>
+            <td>
+              <a href="/rooms/<%= reservation.room_id %>">
+                <%= reservation.room.name %>
+              </a>
+            </td>
             <td><%= reservation.room.introduction %></td>
             <td><%= reservation.total_price %></td>
             <td><%= reservation.start_date %></td>
             <td><%= reservation.end_date %></td>
-            <td><%= reservation.created_at %></td>
+            <td><%= reservation.created_at.strftime("%Y-%m-%d %H:%M") %></td>
         </tr>
       <% end %>
     <% end %>
