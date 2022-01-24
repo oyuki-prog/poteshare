@@ -1,0 +1,212 @@
+@import "_setting";
+
+.form__row {
+  display: flex;
+  padding: 20px 0;
+
+  @include mq(tab) {
+    display: block;
+    padding-bottom: 0;
+  }
+}
+
+.form__row__reserve {
+  display: block;
+  padding: 20px 0;
+}
+
+.rooms {
+  padding-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.form {
+  width: 90%;
+  margin: 30px auto 60px;
+  padding: 40px;
+  box-shadow: 5px 8px 8px #444;
+
+  @include mq(sp) {
+    margin: 0 auto 40px;
+    width: 100%;
+    padding: 15px;
+  }
+}
+
+.field_with_errors {
+  display: contents;
+}
+
+.form__field {
+  width: 60%;
+  margin-left: 10px;
+  padding: 8px;
+
+  @include mq(tab) {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.form__field__reserve {
+  width: 100%;
+  padding: 8px;
+}
+
+.text-area {
+  resize: vertical;
+}
+
+.form__label {
+  width: 40%;
+  display: block;
+  margin: 10px 0;
+  position: relative;
+
+  @include mq(tab) {
+    width: 100%;
+  }
+}
+
+.form__reserve {
+  display: block;
+}
+
+.required::after {
+  content: "必須";
+  position: absolute;
+  transform: translateX(10px);
+  background-color: red;
+  color: #eee;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 0 16px;
+}
+
+.room__card {
+  width: 30%;
+  border: 1px solid #ccc;
+  background-color: #ccc;
+  display: block;
+  margin-right: calc(10% / 2 - 1px);
+  margin-bottom: 60px;
+
+  @include mq(tab) {
+    width: 45%;
+    margin-right: calc(10% - 1px);
+  }
+
+  @include mq(sp) {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+@include mq(tab-only) {
+  .room__card:nth-child(2n) {
+    margin-right: 0;
+  }
+}
+
+@include mq(pc) {
+  .room__card:nth-child(3n) {
+    margin-right: 0;
+  }
+}
+
+.room__img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+}
+
+.room__text {
+  padding: 20px;
+  background-color: #fff;
+  color: #333;
+}
+
+.room__block {
+  margin: 40px 0;
+  display: flex;
+  justify-content: space-between;
+
+  @include mq(sp) {
+    display: block;
+  }
+}
+
+.room__info {
+  width: 60%;
+  margin-bottom: 40px;
+
+  @include mq(sp) {
+    width: 100%;
+  }
+}
+
+.room__img-block {
+  background-color: #ddd;
+}
+
+.room-show__img {
+  height: 400px;
+  margin: 0 auto 30px;
+  object-fit: contain;
+}
+
+.room__reservation {
+  width: 35%;
+
+  @include mq(sp) {
+    width: 100%;
+  }
+}
+
+table a {
+  color: #333;
+  text-decoration: underline;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 30px 0;
+  display: block;
+  overflow-x: scroll;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+tr {
+  display: table-row;
+  border-bottom: 2px solid #111;
+}
+
+th,
+td {
+  padding: 20px;
+}
+
+.field {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn__reserve {
+  width: 100%;
+  display: block;
+  margin-top: 30px;
+}
+
+.btn__room {
+  text-align: center;
+  padding: 10px 20px;
+  margin-top: 30px;
+}
+
