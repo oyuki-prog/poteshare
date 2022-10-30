@@ -1,0 +1,42 @@
+<div class="container">
+  <h2 class="title">ルーム詳細</h2>
+
+  <%= render "shared/errors" %>
+  <div class="room__block">
+    <div class="room__info">
+      <div class="room__img-block">
+        <%= image_tag "#{@room.image}", class: 'room-show__img' %>
+      </div>
+      <div class="room-show__text">
+        <p class="name"><%= @room.name %></p>
+        <p><%= @room.address %></p>
+        <p><%= @room.introduction %></p>
+      </div>
+    </div>
+    <div class="room__reservation">
+      <p class="name">一人あたり ￥ <%= @room.price %> / 日</p>
+      <% if user_signed_in? %>
+        <%= form_with url: "/reservations/new", method: :get, model: @reservation do |f| %>
+        <div class="form__row__reserve">
+          <%= f.label :start_date %>
+          <%= f.date_field :start_date, class:'form__field__reserve', required: true %>
+        </div>
+        <div class="form__row__reserve">
+          <%= f.label :end_date %>
+          <%= f.date_field :end_date, class:'form__field__reserve', required: true %>
+        </div>
+        <div class="form__row__reserve">
+          <%= f.label :guests_num %>
+          <%= f.number_field :guests_num, :min => 1, :step => 1, class:'form__field__reserve', required: true %>
+        </div>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+        <%= f.hidden_field :room_id, :value => @room.id %>
+        <%= f.submit "予約する", class: 'btn btn__reserve' %>
+        <% end %>
+      <% else %>
+        <%= link_to "ログインして予約する", :new_user_session, class: 'btn btn__room' %>
+        <%= link_to "登録して予約する", :new_user_registration, class: 'btn btn__room' %>
+      <% end %>
+    </div>
+  </div>
+</div>

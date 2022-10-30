@@ -1,0 +1,150 @@
+@charset "UTF-8";
+/* ====================================
+※※※※※※※※※※※※※※※※※※※※
+このCSSファイルはSassから生成されていますので、
+編集しないようご注意ください。
+※※※※※※※※※※※※※※※※※※※※
+==================================== */
+
+// ======================================
+// サイトの基本設定
+// ======================================
+
+// 幅関係の設定--------------------------
+$width-base: 1000px; // 全体
+$width-main: 800px; // メインエリアの幅
+$width-side: 360px; // サイドバーの幅
+
+// フォント関係の設定--------------------
+$font-base: "游ゴシック体",
+"Yu Gothic",
+YuGothic,
+"ヒラギノ角ゴ Pro",
+"Hiragino Kaku Gothic Pro",
+"メイリオ",
+"Meiryo",
+"sans-serif";
+$font-serif: "ヒラギノ明朝 ProN",
+serif;
+$font-size-base: 16px;
+$font-weight-base: 400;
+$line-height-base: (27 / 16);
+
+// 色関係の設定--------------------------
+$color-main: #3EA1D1; // サイトカラー
+$color-sub: #def1fa;
+$color-background: #FFFFFF;
+$color-background-sub: #EFEFEF;
+$color-text: #333; // フォントカラー
+$color-accent: #E7728E;
+$color-link: #ff8c28; // リンクカラー
+$hover-opacity: 0.7; // 透過度
+
+// 階層
+$layer: (modal: 100, // モダール
+  drawer: 40, // ドロワー
+  floating: 30, // フローティングアイテム
+  header: 20, // ヘッダー
+  footer: 10, // フッター
+  default: 1,
+);
+
+// 余白
+$padding-pc: 24px;
+$padding-tab: 24px;
+$padding-sp: 15px;
+
+// ヘッダー高さ
+$header-height-pc: 70px;
+$header-height-sp: 60px;
+
+
+// ブレークポイント---------------------
+$breakpoints: ("sp": "(max-width: 767px)",
+  "tab-only": "(min-width: 768px) and (max-width: #{$width-base - 1px})",
+  "tab": "(max-width: #{$width-base - 1px})",
+  "pc": "(min-width: #{$width-base})",
+);
+
+// メディアクエリー---------------------
+@mixin mq($breakpoint: sp) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+// -----
+// 初期化
+// -----
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header,
+footer {
+  font-family: $font-base;
+}
+
+body {
+  font-family: $font-base;
+  font-size: $font-size-base;
+  font-weight: $font-weight-base;
+  color: $color-text;
+  line-height: $line-height-base;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: $color-background;
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+  // padding-top: $header-height-pc;
+
+  @include mq('sp') {
+    // padding-top: $header-height-sp;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border: none;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.container {
+  width: $width-base;
+  max-width: 90%;
+  margin: 0 auto;
+  height: inherit;
+  position: relative;
+
+  @include mq('tab') {
+    padding-left: $padding-tab;
+    padding-right: $padding-tab;
+    width: calc(100% - #{$padding-tab} * 2);
+  }
+
+  @include mq('sp') {
+    padding-left: $padding-sp;
+    padding-right: $padding-sp;
+    width: calc(100% - #{$padding-sp} * 2);
+  }
+}
